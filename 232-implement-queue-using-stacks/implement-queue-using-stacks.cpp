@@ -2,9 +2,9 @@ class MyQueue {
 public:
 stack<int>s1;
 stack<int>s2;
-    MyQueue() {
+    // MyQueue() {
     
-    }
+    // }
     
     void push(int x) {
         s1.push(x);
