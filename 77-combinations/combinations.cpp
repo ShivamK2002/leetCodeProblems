@@ -1,17 +1,17 @@
 class Solution {
 public:
     void combo(vector<vector<int>>&ans,vector<int>&temp,int n, int k, int i){
-        
+        if(i>n){
+            sort(temp.begin(),temp.end());
             
-             if(temp.size()==k ) 
+            if(temp.size()==k ) 
             {
-          
-                ans.push_back(temp) ;
+                if(ans.empty())ans.push_back(temp);
+                else if(ans.back()!=temp)ans.push_back(temp) ;
 
-            return;
             }
-        if(i>n) return;
-        
+            return;
+        }
         temp.push_back(i);
         combo(ans,temp,n,k,i+1);
        if(!temp.empty()) temp.pop_back();
