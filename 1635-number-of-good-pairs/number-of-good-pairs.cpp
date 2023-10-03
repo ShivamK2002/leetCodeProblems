@@ -3,11 +3,17 @@ public:
     int numIdenticalPairs(vector<int>& nums) {
         int n = nums.size();
         int count = 0;
-        for(int i = 0; i<n; i++){
-            for(int j=i+1; j<n; j++){
-                if(nums[i]==nums[j]) count++;
-            }
+        unordered_map<int,int>mpp;
+
+        for(auto i:nums){
+            mpp[i]++;
         }
+        for(auto i:mpp)
+        {
+            //  n * (n – 1) // 2
+             if(i.second>1) count+=(i.second*(i.second-1)/2);
+        }
+     
         return count;
     }
 };
