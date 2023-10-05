@@ -5,7 +5,7 @@ public:
             ans.push_back(temp);
             return;
         }
-        for (int i = index; i < candidates.size(); ++i) {
+        for (int i = index; i < candidates.size(); i++) {
             if (candidates[i] > target) {
                 // If the current candidate is greater than the target, skip it.
                 continue;
