@@ -1,5 +1,7 @@
 class Solution {
 public:
+
+// merge sort solution by watching striver
     void merge(vector<int>&nums,int firstStart,int firstEnd,int secondStart,int secondEnd){
         int left = firstStart;
         int right = secondStart;
