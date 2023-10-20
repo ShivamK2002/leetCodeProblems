@@ -13,27 +13,32 @@ class Solution
     //Function to find if there is a celebrity in the party or not.
     int celebrity(vector<vector<int> >& M, int n) 
     {
-        vector<int>store;
+        // code here 
+        stack<int>st;
         for(int i=0; i<n; i++){
-            int sum = 0;
-            for(int j=0; j<n; j++){
-                sum+=M[j][i];
+            st.push(i);
+        }
+        while(st.size()!=1){
+            int a = st.top();
+            st.pop();
+            int b = st.top();
+            st.pop();
             
+            if(M[a][b]==1) {
+                st.push(b);
             }
-            store.push_back(sum);
+             
+            else  {
+                st.push(a);
+            }
         }
-        
+        int celeb = st.top();
         for(int i=0; i<n; i++){
-            int sum = store[i];
-            if(sum==n-1){
-                bool flag = true;
-                for(int k=0; k<n; k++){
-                    if(M[i][k]!=0) flag = false;
-                }
-                if(flag) return i;
-            }
+            if(M[celeb][i]) return -1; 
+            if(M[i][celeb]==0 and i!=celeb) return -1; 
         }
-        return -1;
+    
+        return celeb;
     }
 };
 
