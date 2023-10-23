@@ -3,39 +3,34 @@
 using namespace std;
 
 // } Driver Code Ends
-
 class Solution {
 	public:
 		string FirstNonRepeating(string A){
-		    map<char, int> m;
-		    string ans = "";
-		    queue<char> q;
-		    
-		    for(int i=0; i<A.length(); i++) {
-		        char ch = A[i];
+		        int n = A.size();
+		        unordered_map<char,int>mpp;
+		     
 		        
-		        q.push(ch);
-		        m[ch]++;
-		        
-		        while(!q.empty()) {
-		            if(m[q.front()] > 1){
-		                q.pop();
-		            }
-		            else
-		            {
-		                ans.push_back(q.front());
-		                break;
-		            }
-		        }
-		        if(q.empty()){
-		            ans.push_back('#');
-		        }
-		    }
-		    return ans;
+		        string ans = "";
+		       
+		        queue<char>q;
+		       for(int i=0; i<n; i++){
+		               q.push(A[i]);
+		               mpp[A[i]]++;
+		           while(!q.empty()){
+		               if(mpp[q.front()]>1) q.pop();
+		               else {
+		                   ans.push_back(q.front());
+		                   break;
+		               }
+		           }
+		           if(q.empty()) ans.push_back('#');
+		           
+		       }
+		       
+		        return ans;
 		}
 
 };
-
 
 //{ Driver Code Starts.
 int main(){
