@@ -12,7 +12,7 @@ public:
                sum+=arr[j];
                j++;
            }
-           else if(j-i+1 == k){
+           else {
                sum+=arr[j];
                if(sum/k >= threshold) count++;
                sum-=arr[i];
