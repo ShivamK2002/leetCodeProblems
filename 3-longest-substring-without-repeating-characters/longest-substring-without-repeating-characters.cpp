@@ -9,7 +9,7 @@ public:
         int len = 0;
         while(j<n){
             char ch = s[j];
-            if(mpp.find(ch)==mpp.end() || mpp[s[j]] < i)
+            if(mpp.find(ch)==mpp.end() or mpp[s[j]] < i)
             {
                 mpp[s[j]] = j;
                 len = max(len,j-i+1);
