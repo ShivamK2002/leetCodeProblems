@@ -10,18 +10,28 @@
  */
 class Solution {
 public:
+    ListNode* solve(ListNode* &curr, ListNode*&prev){
+        if(curr==NULL) return prev;
+         ListNode* forw = curr->next;
+            curr->next = prev;
+            prev = solve(forw,curr);
+            return prev;
+    }
     ListNode* reverseList(ListNode* head) {
         ListNode* curr = head;
         ListNode* prev = NULL;
-        ListNode* forw = NULL;
+        // ListNode* forw = NULL;
 
-        while(curr!=NULL ){
-            forw = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = forw;
-        }
-        return prev;
+        // while(curr!=NULL ){
+        //     forw = curr->next;
+        //     curr->next = prev;
+        //     prev = curr;
+        //     curr = forw;
+        // }
+        // return prev;
+
+
+        return solve(curr,prev);
 
     }
 };
