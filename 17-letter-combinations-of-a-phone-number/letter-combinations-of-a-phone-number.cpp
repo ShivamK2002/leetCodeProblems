@@ -6,8 +6,7 @@ public:
             return;
         }
      int num = digits[index]-'0';
-     string traverse = "";
-     traverse+=mpp[num];
+     string traverse =mpp[num];
 
     for(int i=0; i<traverse.size(); i++){
         op.push_back(traverse[i]);
