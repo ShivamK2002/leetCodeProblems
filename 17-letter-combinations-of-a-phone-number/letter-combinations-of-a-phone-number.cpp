@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void solve(string digits,vector<string>&ans,string op,int index,string mpp[]){
+    void solve(string digits,vector<string>&ans,string op,int index,vector<string>mpp){
         if(index>=digits.size()){
             ans.push_back(op);
             return;
@@ -19,7 +19,8 @@ public:
         vector<string>ans;
         string op = "";
         int index = 0;
-        string mpp[10] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        vector<string>mpp =
+        {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         solve(digits,ans,op,index,mpp);
 
         return ans;
