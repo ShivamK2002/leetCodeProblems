@@ -1,32 +1,26 @@
 class Solution {
 public:
-
-    void solve(vector<int>&temp, vector<int>nums,vector<vector<int>>&ans,unordered_map<int,bool>&mpp,int n ,int index){
-            if(temp.size()==n){
+    void solve(vector<int>&nums,int n,vector<vector<int>>&ans,unordered_map<int,bool>&mpp,int i,vector<int>temp){
+        if(temp.size()==n){
             ans.push_back(temp);
             return;
         }
         for(int i=0; i<n; i++){
-
-       if(mpp[nums[i]]==false)
-       {
-           temp.push_back(nums[i]);
-        mpp[nums[i]] = true;
-        solve(temp,nums,ans,mpp,n,i+1);
-        temp.pop_back();
-        mpp[nums[i]] = false;
-        }
+            if(!mpp[nums[i]]){
+                mpp[nums[i]] = true;
+                temp.push_back(nums[i]);
+                solve(nums,n,ans,mpp,i+1,temp);
+                temp.pop_back();
+                mpp[nums[i]] = false;
+            }
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        unordered_map<int,bool>mpp;
-        vector<int>temp;
-        for(auto i:nums){
-            mpp[i]  = false;
-        }
+        vector<vector<int>> ans;
         int n = nums.size();
-        vector<vector<int>>ans;
-        solve(temp,nums,ans,mpp,n,0);
+        vector<int>temp;
+        unordered_map<int,bool>mpp;
+        solve(nums,n,ans,mpp,0,temp);
         return ans;
     }
 };
