@@ -12,20 +12,15 @@
 class Solution {
 public:
     void solve(TreeNode* root, int sum,bool &ans,int targetSum){
-            if(root!=NULL)sum +=root->val;
+       
+        sum +=root->val;
         cout<<sum<<endl;
         if(!root->left and !root->right){
-            if(sum==targetSum) {
-                ans = true;
-                // return;
-            }
-            
+            if(sum==targetSum) ans = true;
             return;
         }
-if(root->left)solve(root->left,sum,ans,targetSum);
-        // targetSum+=root->val;
-        // cout<<targetSum<<endl;
-   if(root->right)solve(root->right,sum,ans,targetSum);
+    if(root->left)solve(root->left,sum,ans,targetSum);
+    if(root->right)solve(root->right,sum,ans,targetSum);
         
     }
     bool hasPathSum(TreeNode* root, int targetSum) {
