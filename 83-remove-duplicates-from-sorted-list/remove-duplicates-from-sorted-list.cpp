@@ -10,32 +10,27 @@
  */
 class Solution {
 public:
-    void createNew(ListNode* &head,ListNode* &tail,int data){
-        ListNode* newNode = new ListNode(data);
-        if(head==NULL){
-            head = newNode;
-            tail = head;
-            return;
-        }
-       else{ 
-        tail->next = newNode;
-        tail = newNode;
-       }
-    }
     ListNode* deleteDuplicates(ListNode* head) {
-        set<int>st;
-        ListNode *temp = head;
+        ListNode* temp = head;
 
         while(temp!=NULL) {
-        st.insert(temp->val);
-        temp = temp->next;
-        }
-        ListNode* ans = NULL;
-        ListNode* tail = NULL;
-        for(auto i:st){ 
-            createNew(ans,tail,i);
+            ListNode* curr = temp;
+
+            while(curr!=NULL and curr->val==temp->val)
+            {
+                curr = curr->next;
+            }
+            temp->next = curr;
+
+
+
+
+
+
+
+            temp = temp->next;
         }
 
-    return ans;
+        return head;
     }
 };
