@@ -7,14 +7,14 @@ public:
             string temp = i;
             sort(temp.begin(),temp.end());
 
-            if(mpp.find(temp)!=mpp.end()){
              mpp[temp].push_back(i);   
-            }
-            else {
-                vector<string> store;
-                store.push_back(i);
-                mpp[temp] = store;
-            }
+            // if(mpp.find(temp)!=mpp.end()){
+            // }
+            // else {
+            //     vector<string> store;
+            //     store.push_back(i);
+            //     mpp[temp] = store;
+            // }
         }      
 
         vector<vector<string>>ans;
