@@ -12,8 +12,8 @@ public:
         string ans = "";
         for(auto i:v){
             int it = i.first;
-            while(it--)
-            ans+=i.second;
+            
+            ans+=string(i.first,i.second);
         }
         return ans;
     }
